@@ -18,9 +18,7 @@ export class CarsService {
 
   public async addNewCar(newCarData: NewCarInput): Promise<Car> {
     try {
-      const newCar = await this.carRepository.save(newCarData);
-      console.log(newCar);
-      return newCar;
+      return await this.carRepository.save(newCarData);
     } catch (err) {
       throw new InternalServerErrorException();
     }
